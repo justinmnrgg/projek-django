@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+    <div class="container">
+    <h1>List Foto Review</h1>
+        {% if request.session.role == 'administrator' %}
+            <div class="navbar-right">
+                <a href="{% url 'pengunjung:foto_review_create' %}">
+                    <button class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add Foto Review</button>
+                </a>
+            </div>
+        {% endif %}
+    {% for foo in foto_reviews %}
+        <a href="detail/{{ foo.pk }}"><h2>{{ foo.id_review }} {{ foo.foto_review }}</h2></a>
+    {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+
+    <div class="container">
+        {{ dokter_detail.nama }}
+        <p>
+            <a class="btn btn-warning" href="{% url 'rumah_sakit:dokter_update' pk=dokter_detail.pk %}">Update</a>
+            <a class="btn btn-danger" href="{% url 'rumah_sakit:dokter_delete' pk=dokter_detail.pk %}">Delete</a>
+        </p>
+    </div>
+{% endblock %}

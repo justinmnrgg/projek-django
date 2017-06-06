@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+    <div class="container">
+    <h1>List Hubungan Rumah Sakit-Asuransi Request</h1>
+    {% for foo in hubungan_rumah_sakit_asuransis %}
+        <div>
+            <h2>{{ foo.asuransi.nama }}</h2>
+            <form action="{% url 'rumah_sakit:validated_hubungan_asuransi_by_rumah_sakit' %}">
+                <button class="btn btn-success" value="{{ foo.pk }}" name="submit">Validated</button>
+            </form>
+            <form action="{% url 'rumah_sakit:rejected_hubungan_asuransi_by_rumah_sakit' %}">
+                <button class="btn btn-danger" value="{{ foo.pk }}" name="submit">Rejected</button>
+            </form>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

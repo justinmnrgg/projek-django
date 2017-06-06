@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+    <div class="container">
+    <div class="navbar-right">
+        <p>
+            Lihat Detail dan tambahkan foto review anda...
+        </p>
+    </div>
+    <h1>List Review</h1>
+        {% if request.session.role == 'administrator'%}
+            <div class="navbar-right">
+                <a href="{% url 'pengunjung:review_create' %}">
+                    <button class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add Review</button>
+                </a>
+            </div>
+        {% endif %}
+    {% for foo in reviews %}
+        <a href="detail/{{ foo.pk }}"><h2>{{ foo.pengunjung }} {{ foo.rumah_sakit }}</h2></a>
+    {% endfor %}
+    </div>
+{% endblock %}

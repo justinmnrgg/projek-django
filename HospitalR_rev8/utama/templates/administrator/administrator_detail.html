@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+    <div class="container">
+        {{ administrator_detail.nama}}
+        <p>
+            <a class="btn btn-warning" href="{% url 'utama:administrator_update' pk=administrator_detail.pk %}">Update</a>
+        </p>
+    </div>
+{% endblock %}

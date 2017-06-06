@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+
+    <div class="container">
+        {{ foto_rumah_sakit_detail.rumah_sakit.nama }}
+        <p>
+            <a class="btn btn-warning" href="{% url 'rumah_sakit:foto_rumah_sakit_update' pk=foto_rumah_sakit_detail.pk %}">Update</a>
+            <a class="btn btn-danger" href="{% url 'rumah_sakit:foto_rumah_sakit_delete' pk=foto_rumah_sakit_detail.pk %}">Delete</a>
+        </p>
+    </div>
+{% endblock %}

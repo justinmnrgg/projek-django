@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+    <div class="container">
+    <h1>List Pengunjung</h1>
+        {% if request.session.role == 'administrator' %}
+            <div class="navbar-right">
+                <a href="{% url 'pengunjung:pengunjung_create' %}">
+                    <button class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add Pengunjung</button>
+                </a>
+            </div>
+        {% endif %}
+    {% for foo in pengunjungs %}
+        <a href="detail/{{ foo.pk }}/"><h2>{{ foo.nama }} </h2></a>
+    {% endfor %}
+    </div>
+{% endblock %}

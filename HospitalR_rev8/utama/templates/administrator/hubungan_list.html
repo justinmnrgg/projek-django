@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+    <div class="container">
+    <h2>List Asuransi Terkait</h2>
+    <h3>Hubungan Request</h3>
+    {% for foo in hubungan_request %}
+       <h4>{{ foo.asuransi.nama }} - {{ foo.rumah_sakit.nama }}</h4>
+    {% endfor %}
+
+    <h3>Hubungan Validated</h3>
+    {% for foo in hubungan_validated %}
+       <h4>{{ foo.asuransi.nama }} - {{ foo.rumah_sakit.nama }}</h4>
+    {% endfor %}
+
+    <h3>Hubungan Rejected</h3>
+    {% for foo in hubungan_rejected %}
+       <h4>{{ foo.asuransi.nama }} - {{ foo.rumah_sakit.nama }}</h4>
+    {% endfor %}
+    </div>
+{% endblock %}

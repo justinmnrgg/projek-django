@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+    <div class="container">
+    <h1>List Hubungan Rumah Sakit-Asuransi</h1>
+        {% if request.session.role == 'administrator' or request.session.role == 'asuransi' %}
+            <div class="navbar-right">
+                <a href="{% url 'asuransi:hubungan_rumah_sakit_asuransi_create' %}">
+                    <button class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add Hubungan Rumah Sakit-Asuransi</button>
+                </a>
+            </div>
+        {% endif %}
+    {% for foo in hubungan_rumah_sakit_asuransis %}
+        <a href="detail/{{ foo.pk }}"><h2>{{ foo.asuransi }}</h2></a>
+    {% endfor %}
+    </div>
+{% endblock %}

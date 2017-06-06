@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+
+    <div class="container">
+        {{ pengunjung_detail.nama }}
+        <p>
+            <a class="btn btn-warning" href="{% url 'pengunjung:pengunjung_update' pk=pengunjung_detail.pk %}">Update</a>
+            <a class="btn btn-danger" href="{% url 'pengunjung:pengunjung_delete' pk=pengunjung_detail.pk %}">Delete</a>
+        </p>
+    </div>
+{% endblock %}

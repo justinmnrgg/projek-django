@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+    <div class="container">
+    <h1>List Asuransi Terkait</h1>
+    {% for foo in asuransis %}
+       <h2>{{ foo.nama }}</h2>
+    {% endfor %}
+    </div>
+{% endblock %}

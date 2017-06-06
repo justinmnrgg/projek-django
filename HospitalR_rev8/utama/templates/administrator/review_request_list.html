@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+    <div class="container">
+    <h1>List Review Request</h1>
+    {% for foo in reviews %}
+        <div>
+            <h2>{{ foo.pengunjung.nama }}</h2>
+            <form action="{% url 'utama:review_validated' %}">
+                <button class="btn btn-success" value="{{ foo.pk }}" name="submit">Validated</button>
+            </form>
+            <form action="{% url 'utama:review_rejected' %}">
+                <button class="btn btn-danger" value="{{ foo.pk }}" name="submit">Rejected</button>
+            </form>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

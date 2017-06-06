@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1>List Jadwal Dokter</h1>
+            </div>
+            <div class="col-lg-4">
+                {% if request.session.role == 'administrator' or request.session.role == 'rumah_sakit' %}
+                    <div class="navbar-right">
+                        <a href="{% url 'rumah_sakit:jadwal_dokter_create' %}">
+                            <button class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add Jadwal Dokter</button>
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <hr/>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nama Dokter</th>
+                    <th>Waktu Masuk</th>
+                    <th>Waktu Keluar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for foo in jadwal_dokters %}
+                    <tr>
+                        <td><a href="{% url 'rumah_sakit:jadwal_dokter_detail' pk=foo.pk %}">{{ foo.dokter.nama }}</a></td>
+                        <td>{{ foo.waktu_masuk }}</td>
+                        <td>{{ foo.waktu_keluar }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <br/>
+{% endblock %}
